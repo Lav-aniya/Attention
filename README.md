@@ -26,3 +26,4 @@ Each of these layers involves multiplying the input tensor of size `(b ,t, k)` b
 
 **Mixture of Experts (MOE):** MOE has many small "expert" networks instead of having one massive feed-forward network (which uses these linear layers).
 For each token, a routing network chooses just one or two experts to process it. This allows the model to have a massive number of parameters but keeps the actual computational cost per token low, effectively bypassing the $k^2$ problem for a significant portion of the model.
+
