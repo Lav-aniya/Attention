@@ -29,4 +29,4 @@ For each token, a routing network chooses just one or two experts to process it.
 
 
 
-![MultiHeadSelfAttention](\images\multiheadattention.png)
+![MultiHeadSelfAttention](/images/multiheadattention.png)
