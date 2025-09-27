@@ -11,8 +11,8 @@ The issue arises from the need to compute an attention score between every pair 
 
 #### ***Solution:***
 
-* **Sliding Window Attention:** Instead of each token looking at the entire sequence, it only attends to a fixed number of neighboring tokens. This is based on the idea that for many tasks, the most relevant context for a word is the words immediately surrounding it.
 * **Sparse Attention:** Instead of computing the full matrix, you only compute scores for a subset of token pairs.
+    * **Sliding Window Attention:** Instead of each token looking at the entire sequence, it only attends to a fixed number of neighboring tokens. This is based on the idea that for many tasks, the most relevant context for a word is the words immediately surrounding it.
 * **Flash Attention:** It dramatically changes *how* it's computed on the GPU. It avoids the massive bottleneck of reading and writing the huge $(t, t)$ attention matrix to and from the GPU's main memory(HBM). It keeps the calculations within the GPU's much faster on-chip memory (SRAM) by computing the attention in smaller blocks or "tiles". This results in huge speedups (2-4x) and memory savings without changing the model's architecture.
 
 ### ***Secondary Bottleneck: Embeddin Dimension $(O(k^2))$:***
